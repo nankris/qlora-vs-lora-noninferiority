@@ -1,0 +1,266 @@
+Experiment 101c: recorded terminal evidence.
+Full polling transcript: results/poll_history.txt
+Full VM logs: results/remote_logs/
+
+
+confirmation_start.json
+{"unix": 1792351745.5445738, "preregistration_commit": "a3a5d235b16cd8170635fd0c96d982c45648b70b"}
+
+started.json
+{"unix": 1792363631.3451157, "deadline_unix": 1792374431.345116}
+
+GPU at setup
+Sun Oct 18 22:47:10 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L4                      Off |   00000000:00:03.0 Off |                    0 |
+| N/A   36C    P8             12W /   72W |       0MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+
+One recorded active-GPU snapshot
+Sun Oct 18 19:35:08 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L4                      Off |   00000000:00:03.0 Off |                    0 |
+| N/A   67C    P0             71W /   72W |    2962MiB /  23034MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           11414      C   /usr/bin/python3                       2954MiB |
++-----------------------------------------------------------------------------------------+
+
+
+
+PILOT training checkpoints and measured results
+pilot_lora_700 step 10 loss 1.5692 seconds 17.08
+pilot_lora_700 step 20 loss 0.8804 seconds 32.71
+pilot_lora_700 step 30 loss 0.3829 seconds 48.92
+RESULT {"tag": "pilot_lora_700", "arm": "lora", "seed": 700, "phase": "pilot", "accuracy": 0.8515625, "train_seconds": 49.4691207408905, "eval_seconds": 3.1827805042266846, "total_seconds": 81.53634643554688, "peak_allocated_bytes": 3885409280, "peak_reserved_bytes": 4485808128, "initial_adapter_sha256": "c30feeac7d0e09160bde7364ddc336f09b443ede706395ce1ed29d6b20ce45a2", "trainable_parameters": 17432576, "training_prompt_tokens": 38385, "training_target_tokens": 480, "eval_prompt_tokens": 20740, "eval_scored_tokens": 256, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+pilot_qlora_700 step 10 loss 1.4821 seconds 23.22
+pilot_qlora_700 step 20 loss 1.3575 seconds 45.75
+pilot_qlora_700 step 30 loss 0.7831 seconds 68.32
+RESULT {"tag": "pilot_qlora_700", "arm": "qlora", "seed": 700, "phase": "pilot", "accuracy": 0.875, "train_seconds": 68.86546206474304, "eval_seconds": 3.5163497924804688, "total_seconds": 82.89786076545715, "peak_allocated_bytes": 1798120448, "peak_reserved_bytes": 2847932416, "initial_adapter_sha256": "c30feeac7d0e09160bde7364ddc336f09b443ede706395ce1ed29d6b20ce45a2", "trainable_parameters": 17432576, "training_prompt_tokens": 38385, "training_target_tokens": 480, "eval_prompt_tokens": 20740, "eval_scored_tokens": 256, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+
+CONFIRM training checkpoints and measured results
+confirm_qlora_1701 step 10 loss 0.5212 seconds 23.67
+confirm_qlora_1701 step 20 loss 0.0174 seconds 46.79
+confirm_qlora_1701 step 30 loss 0.345 seconds 70.41
+confirm_qlora_1701 step 40 loss 0.0484 seconds 93.53
+confirm_qlora_1701 step 50 loss 0.0378 seconds 116.64
+confirm_qlora_1701 step 60 loss 0.0017 seconds 140.29
+confirm_qlora_1701 step 70 loss 0.3769 seconds 163.42
+confirm_qlora_1701 step 80 loss 0.0102 seconds 186.49
+confirm_qlora_1701 step 90 loss 0.3204 seconds 210.16
+confirm_qlora_1701 step 100 loss 0.0055 seconds 233.33
+confirm_qlora_1701 step 110 loss 0.2093 seconds 256.63
+confirm_qlora_1701 step 120 loss 0.1911 seconds 280.41
+RESULT {"tag": "confirm_qlora_1701", "arm": "qlora", "seed": 1701, "phase": "confirm", "accuracy": 0.9749795287053044, "train_seconds": 280.9931104183197, "eval_seconds": 170.10698175430298, "total_seconds": 475.4136025905609, "peak_allocated_bytes": 1796200448, "peak_reserved_bytes": 2845835264, "initial_adapter_sha256": "6bf16325ab7dfc7666d86b783dd3edd21f2f2c79bb7138c0200b1e025ec20388", "trainable_parameters": 17432576, "training_prompt_tokens": 234874, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+confirm_lora_1701 step 10 loss 0.7424 seconds 16.27
+confirm_lora_1701 step 20 loss 0.1137 seconds 31.8
+confirm_lora_1701 step 30 loss 0.0022 seconds 48.24
+confirm_lora_1701 step 40 loss 0.0135 seconds 64.4
+confirm_lora_1701 step 50 loss 0.221 seconds 80.62
+confirm_lora_1701 step 60 loss 0.0026 seconds 96.82
+confirm_lora_1701 step 70 loss 0.4886 seconds 112.62
+confirm_lora_1701 step 80 loss 0.0052 seconds 128.7
+confirm_lora_1701 step 90 loss 0.0024 seconds 144.38
+confirm_lora_1701 step 100 loss 0.0118 seconds 160.13
+confirm_lora_1701 step 110 loss 0.0482 seconds 176.28
+confirm_lora_1701 step 120 loss 0.6025 seconds 192.09
+RESULT {"tag": "confirm_lora_1701", "arm": "lora", "seed": 1701, "phase": "confirm", "accuracy": 0.958056591756892, "train_seconds": 192.64133739471436, "eval_seconds": 154.16920065879822, "total_seconds": 364.6795012950897, "peak_allocated_bytes": 3885672448, "peak_reserved_bytes": 4483710976, "initial_adapter_sha256": "6bf16325ab7dfc7666d86b783dd3edd21f2f2c79bb7138c0200b1e025ec20388", "trainable_parameters": 17432576, "training_prompt_tokens": 234874, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+confirm_lora_1702 step 10 loss 0.1151 seconds 16.74
+confirm_lora_1702 step 20 loss 0.0199 seconds 32.84
+confirm_lora_1702 step 30 loss 0.704 seconds 49.59
+confirm_lora_1702 step 40 loss 0.0364 seconds 65.91
+confirm_lora_1702 step 50 loss 0.2092 seconds 82.2
+confirm_lora_1702 step 60 loss 0.0035 seconds 98.8
+confirm_lora_1702 step 70 loss 0.3514 seconds 115.19
+confirm_lora_1702 step 80 loss 0.0202 seconds 131.97
+confirm_lora_1702 step 90 loss 0.0007 seconds 148.36
+confirm_lora_1702 step 100 loss 0.0079 seconds 164.69
+confirm_lora_1702 step 110 loss 0.0123 seconds 181.42
+confirm_lora_1702 step 120 loss 0.0085 seconds 197.69
+RESULT {"tag": "confirm_lora_1702", "arm": "lora", "seed": 1702, "phase": "confirm", "accuracy": 0.9687016649986352, "train_seconds": 198.2489902973175, "eval_seconds": 153.66687417030334, "total_seconds": 369.8698151111603, "peak_allocated_bytes": 3886557184, "peak_reserved_bytes": 4485808128, "initial_adapter_sha256": "fde8b9efca9832a250555be5cfe9ef5495d6f562e16350ece2400a358a343828", "trainable_parameters": 17432576, "training_prompt_tokens": 234974, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+confirm_qlora_1702 step 10 loss 0.2266 seconds 23.02
+confirm_qlora_1702 step 20 loss 0.0156 seconds 45.52
+confirm_qlora_1702 step 30 loss 0.5823 seconds 68.58
+confirm_qlora_1702 step 40 loss 0.0409 seconds 91.22
+confirm_qlora_1702 step 50 loss 0.0864 seconds 113.88
+confirm_qlora_1702 step 60 loss 0.0057 seconds 136.96
+confirm_qlora_1702 step 70 loss 0.1577 seconds 159.73
+confirm_qlora_1702 step 80 loss 0.0347 seconds 182.61
+confirm_qlora_1702 step 90 loss 0.0106 seconds 205.95
+confirm_qlora_1702 step 100 loss 0.3407 seconds 228.84
+confirm_qlora_1702 step 110 loss 0.0649 seconds 251.48
+confirm_qlora_1702 step 120 loss 0.004 seconds 274.9
+RESULT {"tag": "confirm_qlora_1702", "arm": "qlora", "seed": 1702, "phase": "confirm", "accuracy": 0.9633336366117733, "train_seconds": 275.49650740623474, "eval_seconds": 172.17755317687988, "total_seconds": 467.1499078273773, "peak_allocated_bytes": 1796200448, "peak_reserved_bytes": 2847932416, "initial_adapter_sha256": "fde8b9efca9832a250555be5cfe9ef5495d6f562e16350ece2400a358a343828", "trainable_parameters": 17432576, "training_prompt_tokens": 234974, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+confirm_qlora_1703 step 10 loss 0.607 seconds 24.06
+confirm_qlora_1703 step 20 loss 0.6074 seconds 47.5
+confirm_qlora_1703 step 30 loss 0.0051 seconds 71.08
+confirm_qlora_1703 step 40 loss 1.4384 seconds 94.93
+confirm_qlora_1703 step 50 loss 0.0023 seconds 118.44
+confirm_qlora_1703 step 60 loss 0.1667 seconds 142.44
+confirm_qlora_1703 step 70 loss 0.0275 seconds 165.91
+confirm_qlora_1703 step 80 loss 0.3678 seconds 189.43
+confirm_qlora_1703 step 90 loss 1.0548 seconds 213.42
+confirm_qlora_1703 step 100 loss 0.0035 seconds 236.94
+confirm_qlora_1703 step 110 loss 0.0076 seconds 260.5
+confirm_qlora_1703 step 120 loss 0.0176 seconds 284.44
+RESULT {"tag": "confirm_qlora_1703", "arm": "qlora", "seed": 1703, "phase": "confirm", "accuracy": 0.9575106905650077, "train_seconds": 285.02209663391113, "eval_seconds": 169.90448188781738, "total_seconds": 474.5202832221985, "peak_allocated_bytes": 1796200448, "peak_reserved_bytes": 2845835264, "initial_adapter_sha256": "dec3554c78ff9b7bb6bc01552359b919c3bd7059505d5386af97de89019ccd20", "trainable_parameters": 17432576, "training_prompt_tokens": 235112, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+confirm_lora_1703 step 10 loss 0.0544 seconds 16.25
+confirm_lora_1703 step 20 loss 0.8737 seconds 31.76
+confirm_lora_1703 step 30 loss 0.0322 seconds 47.88
+confirm_lora_1703 step 40 loss 0.504 seconds 63.39
+confirm_lora_1703 step 50 loss 0.0544 seconds 79.03
+confirm_lora_1703 step 60 loss 0.0178 seconds 95.14
+confirm_lora_1703 step 70 loss 0.0013 seconds 110.9
+confirm_lora_1703 step 80 loss 0.0078 seconds 127.08
+
+CONFIRM training checkpoints and measured results
+confirm_lora_1703 step 10 loss 0.0544 seconds 18.27
+confirm_lora_1703 step 20 loss 0.8737 seconds 34.86
+confirm_lora_1703 step 30 loss 0.0322 seconds 52.08
+confirm_lora_1703 step 40 loss 0.504 seconds 68.77
+confirm_lora_1703 step 50 loss 0.0544 seconds 85.77
+confirm_lora_1703 step 60 loss 0.0178 seconds 102.41
+confirm_lora_1703 step 70 loss 0.0013 seconds 119.03
+confirm_lora_1703 step 80 loss 0.0078 seconds 136.3
+confirm_lora_1703 step 90 loss 0.4089 seconds 153.03
+confirm_lora_1703 step 100 loss 0.1204 seconds 170.27
+confirm_lora_1703 step 110 loss 0.1491 seconds 186.98
+confirm_lora_1703 step 120 loss 0.4351 seconds 203.8
+RESULT {"tag": "confirm_lora_1703", "arm": "lora", "seed": 1703, "phase": "confirm", "accuracy": 0.9730688745337094, "train_seconds": 204.35174179077148, "eval_seconds": 154.77681398391724, "total_seconds": 398.1962971687317, "peak_allocated_bytes": 3885705216, "peak_reserved_bytes": 4485808128, "initial_adapter_sha256": "dec3554c78ff9b7bb6bc01552359b919c3bd7059505d5386af97de89019ccd20", "trainable_parameters": 17432576, "training_prompt_tokens": 235112, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+confirm_lora_1704 step 10 loss 0.3649 seconds 16.8
+confirm_lora_1704 step 20 loss 0.1009 seconds 32.91
+confirm_lora_1704 step 30 loss 0.351 seconds 49.69
+confirm_lora_1704 step 40 loss 0.3419 seconds 65.87
+confirm_lora_1704 step 50 loss 0.0043 seconds 82.54
+confirm_lora_1704 step 60 loss 0.2469 seconds 98.68
+confirm_lora_1704 step 70 loss 0.1285 seconds 115.52
+confirm_lora_1704 step 80 loss 0.753 seconds 131.86
+confirm_lora_1704 step 90 loss 0.0034 seconds 148.63
+confirm_lora_1704 step 100 loss 0.0004 seconds 164.8
+confirm_lora_1704 step 110 loss 0.0002 seconds 181.19
+confirm_lora_1704 step 120 loss 0.0062 seconds 197.87
+RESULT {"tag": "confirm_lora_1704", "arm": "lora", "seed": 1704, "phase": "confirm", "accuracy": 0.9671549449549631, "train_seconds": 198.38745284080505, "eval_seconds": 155.41938662528992, "total_seconds": 371.9643507003784, "peak_allocated_bytes": 3886373888, "peak_reserved_bytes": 4485808128, "initial_adapter_sha256": "d6d01bb077ae8d1a27dad0a37ee57b1754c8bc54c0b0e1d3359c820356d39507", "trainable_parameters": 17432576, "training_prompt_tokens": 234720, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+confirm_qlora_1704 step 10 loss 1.2818 seconds 23.52
+confirm_qlora_1704 step 20 loss 0.4639 seconds 46.55
+confirm_qlora_1704 step 30 loss 0.0064 seconds 69.82
+confirm_qlora_1704 step 40 loss 0.1687 seconds 93.26
+confirm_qlora_1704 step 50 loss 0.0013 seconds 116.35
+confirm_qlora_1704 step 60 loss 0.0792 seconds 139.83
+confirm_qlora_1704 step 70 loss 1.152 seconds 163.17
+confirm_qlora_1704 step 80 loss 0.7273 seconds 186.39
+confirm_qlora_1704 step 90 loss 0.0016 seconds 209.92
+confirm_qlora_1704 step 100 loss 0.5089 seconds 232.91
+confirm_qlora_1704 step 110 loss 0.0108 seconds 256.07
+confirm_qlora_1704 step 120 loss 0.0061 seconds 279.56
+RESULT {"tag": "confirm_qlora_1704", "arm": "qlora", "seed": 1704, "phase": "confirm", "accuracy": 0.9608770812482941, "train_seconds": 280.1397933959961, "eval_seconds": 171.58477306365967, "total_seconds": 471.3868029117584, "peak_allocated_bytes": 1796465664, "peak_reserved_bytes": 2847932416, "initial_adapter_sha256": "d6d01bb077ae8d1a27dad0a37ee57b1754c8bc54c0b0e1d3359c820356d39507", "trainable_parameters": 17432576, "training_prompt_tokens": 234720, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+confirm_qlora_1705 step 10 loss 1.5285 seconds 23.81
+confirm_qlora_1705 step 20 loss 0.1646 seconds 47.09
+confirm_qlora_1705 step 30 loss 0.506 seconds 70.58
+confirm_qlora_1705 step 40 loss 0.1197 seconds 94.38
+confirm_qlora_1705 step 50 loss 0.9899 seconds 117.59
+confirm_qlora_1705 step 60 loss 0.0031 seconds 141.16
+confirm_qlora_1705 step 70 loss 0.1347 seconds 164.4
+confirm_qlora_1705 step 80 loss 0.8252 seconds 187.83
+confirm_qlora_1705 step 90 loss 0.0259 seconds 211.75
+confirm_qlora_1705 step 100 loss 0.5785 seconds 235.2
+confirm_qlora_1705 step 110 loss 0.5647 seconds 258.56
+confirm_qlora_1705 step 120 loss 0.0033 seconds 282.27
+RESULT {"tag": "confirm_qlora_1705", "arm": "qlora", "seed": 1705, "phase": "confirm", "accuracy": 0.9697024838504231, "train_seconds": 282.84863471984863, "eval_seconds": 172.3445963859558, "total_seconds": 474.79570841789246, "peak_allocated_bytes": 1797036032, "peak_reserved_bytes": 2845835264, "initial_adapter_sha256": "9c0200a215225c18a4273669316d7286a9a90d4fa75cf379c32aedc62296c781", "trainable_parameters": 17432576, "training_prompt_tokens": 235215, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+confirm_lora_1705 step 10 loss 0.6942 seconds 16.57
+confirm_lora_1705 step 20 loss 0.3725 seconds 32.57
+confirm_lora_1705 step 30 loss 0.0037 seconds 48.91
+confirm_lora_1705 step 40 loss 0.4171 seconds 65.28
+confirm_lora_1705 step 50 loss 1.0824 seconds 81.44
+confirm_lora_1705 step 60 loss 0.002 seconds 97.97
+confirm_lora_1705 step 70 loss 0.0042 seconds 114.13
+confirm_lora_1705 step 80 loss 0.0401 seconds 130.66
+confirm_lora_1705 step 90 loss 0.0048 seconds 146.96
+confirm_lora_1705 step 100 loss 0.2002 seconds 163.24
+confirm_lora_1705 step 110 loss 0.0015 seconds 179.78
+confirm_lora_1705 step 120 loss 0.0314 seconds 195.98
+RESULT {"tag": "confirm_lora_1705", "arm": "lora", "seed": 1705, "phase": "confirm", "accuracy": 0.9749795287053044, "train_seconds": 196.49082279205322, "eval_seconds": 155.40304732322693, "total_seconds": 370.0559341907501, "peak_allocated_bytes": 3886390272, "peak_reserved_bytes": 4483710976, "initial_adapter_sha256": "9c0200a215225c18a4273669316d7286a9a90d4fa75cf379c32aedc62296c781", "trainable_parameters": 17432576, "training_prompt_tokens": 235215, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+
+stop.json
+{
+  "session": "b9-101c",
+  "start_unix": 1792365887.637259,
+  "end_unix": 1792365889.1129966,
+  "returncode": 0,
+  "stdout": "[colab] Stopping session 'b9-101c'...\n[colab] Session terminated.\n",
+  "stderr": "",
+  "reason": "All ten confirmation fits saved; audit exit 0"
+}
+
+compute.json
+{
+  "gpu": "NVIDIA L4",
+  "session": "b9-101c",
+  "n_vms": 2,
+  "rate_cu_per_hour": 1.54,
+  "rate_evidence": "Recorded account rates 1.54/hr for one L4, 3.08/hr for two. Shared balance cannot isolate spend.",
+  "sessions": [
+    {
+      "start_unix": 1792351423.653394,
+      "end_unix": 1792356378.465125,
+      "end_reason": "pruned (CLI history)",
+      "minutes": 82.5801955183347
+    },
+    {
+      "start_unix": 1792363617.578944,
+      "end_unix": 1792365889.1129966,
+      "end_reason": "explicit stop after completion",
+      "minutes": 37.858900876839954
+    }
+  ],
+  "session_minutes": 120.43909639517466,
+  "estimated_cu": 3.0912701408094834,
+  "accounting_note": "Conservative elapsed estimate includes entire first VM until recorded pruning, all idle time, and 10 seconds before replacement ready. Not a separate account invoice.",
+  "training_minutes": 41.88258450826009,
+  "evaluation_minutes": 27.27088065544764,
+  "complete_pilot_runs": 2,
+  "complete_confirmatory_runs": 10,
+  "cap_cu": 6,
+  "stopped": true
+}
+
+audit.json
+{
+  "complete": true,
+  "checks": [
+    "pilot seed 700: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1701: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1702: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1703: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1704: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1705: paired gold, initialization, token counts and computed accuracy match"
+  ],
+  "missing": []
+}

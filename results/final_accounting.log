@@ -1,0 +1,51 @@
+{
+  "gpu": "NVIDIA L4",
+  "session": "b9-101c",
+  "n_vms": 2,
+  "rate_cu_per_hour": 1.54,
+  "rate_evidence": "Recorded account rates 1.54/hr for one L4, 3.08/hr for two. Shared balance cannot isolate spend.",
+  "sessions": [
+    {
+      "start_unix": 1792351423.653394,
+      "end_unix": 1792356378.465125,
+      "end_reason": "pruned (CLI history)",
+      "minutes": 82.5801955183347
+    },
+    {
+      "start_unix": 1792363617.578944,
+      "end_unix": 1792365889.1129966,
+      "end_reason": "explicit stop after completion",
+      "minutes": 37.858900876839954
+    }
+  ],
+  "session_minutes": 120.43909639517466,
+  "estimated_cu": 3.0912701408094834,
+  "accounting_note": "Conservative elapsed estimate includes entire first VM until recorded pruning, all idle time, and 10 seconds before replacement ready. Not a separate account invoice.",
+  "training_minutes": 41.88258450826009,
+  "evaluation_minutes": 27.27088065544764,
+  "complete_pilot_runs": 2,
+  "complete_confirmatory_runs": 10,
+  "cap_cu": 6,
+  "stopped": true
+}
+{
+  "estimated_minutes": 150,
+  "planned_stage_minutes": {
+    "setup": 20,
+    "GPU run": 100,
+    "eval": 10,
+    "writeup": 20
+  },
+  "start_ist": "2026-10-18T23:14:53.761107+05:30",
+  "GPU": "NVIDIA L4",
+  "end_ist": "2026-10-19T04:55:52.377966+05:30",
+  "actual_minutes": 340.97694765726726,
+  "per_stage_minutes": {
+    "setup": 270.7690663297971,
+    "GPU run": 41.88258450826009,
+    "eval": 27.27088065544764,
+    "writeup": 1.0544161637624105
+  },
+  "stage_definition": "GPU run/eval sum completed worker measurements including pilot. Writeup is elapsed after final VM stop including analysis/figures. Setup is remaining elapsed, including allocation wait, downloads, loading, interruptions, lost partial work, registration and monitoring. Early drafting overlapped GPU work and is not added twice.",
+  "estimated_cu": 3.0912701408094834
+}

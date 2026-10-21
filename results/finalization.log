@@ -1,0 +1,154 @@
+{
+  "complete": true,
+  "checks": [
+    "pilot seed 700: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1701: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1702: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1703: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1704: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1705: paired gold, initialization, token counts and computed accuracy match"
+  ],
+  "missing": []
+}
+{
+  "gpu": "NVIDIA L4",
+  "session": "b9-101c",
+  "n_vms": 2,
+  "rate_cu_per_hour": 1.54,
+  "rate_evidence": "Recorded account rates 1.54/hr for one L4, 3.08/hr for two. Shared balance cannot isolate spend.",
+  "sessions": [
+    {
+      "start_unix": 1792351423.653394,
+      "end_unix": 1792356378.465125,
+      "end_reason": "pruned (CLI history)",
+      "minutes": 82.5801955183347
+    },
+    {
+      "start_unix": 1792363617.578944,
+      "end_unix": 1792365889.1129966,
+      "end_reason": "explicit stop after completion",
+      "minutes": 37.858900876839954
+    }
+  ],
+  "session_minutes": 120.43909639517466,
+  "estimated_cu": 3.0912701408094834,
+  "accounting_note": "Conservative elapsed estimate includes entire first VM until recorded pruning, all idle time, and 10 seconds before replacement ready. Not a separate account invoice.",
+  "training_minutes": 41.88258450826009,
+  "evaluation_minutes": 27.27088065544764,
+  "complete_pilot_runs": 2,
+  "complete_confirmatory_runs": 10,
+  "cap_cu": 6,
+  "stopped": true
+}
+{
+  "estimated_minutes": 150,
+  "planned_stage_minutes": {
+    "setup": 20,
+    "GPU run": 100,
+    "eval": 10,
+    "writeup": 20
+  },
+  "start_ist": "2026-10-18T23:14:53.761107+05:30",
+  "GPU": "NVIDIA L4",
+  "end_ist": "2026-10-19T04:55:18.016353+05:30",
+  "actual_minutes": 340.4042540947596,
+  "per_stage_minutes": {
+    "setup": 270.7690663297971,
+    "GPU run": 41.88258450826009,
+    "eval": 27.27088065544764,
+    "writeup": 0.4817226012547811
+  },
+  "stage_definition": "GPU run/eval sum completed worker measurements including pilot. Writeup is elapsed after final VM stop including analysis/figures. Setup is remaining elapsed, including allocation wait, downloads, loading, interruptions, lost partial work, registration and monitoring. Early drafting overlapped GPU work and is not added twice.",
+  "estimated_cu": 3.0912701408094834
+}
+{
+  "verdict": "INCONCLUSIVE",
+  "H1": "INCONCLUSIVE",
+  "H2": "PROVEN",
+  "difference_pp": -0.31116367937403333,
+  "difference_ci": [
+    -1.1209171140023657,
+    0.7478846328814485
+  ],
+  "memory_ratio": 0.46226350561561846,
+  "memory_ratio_ci": [
+    0.4621985225895483,
+    0.46233640373042967
+  ],
+  "speed_ratio": 1.4185145770439074,
+  "speed_ratio_ci": [
+    1.3971368749136373,
+    1.4414792685410565
+  ],
+  "n_test": 10991,
+  "n_seeds": 5,
+  "rows": [
+    {
+      "method": "LoRA",
+      "accuracy_percent": 96.83923209899008,
+      "accuracy_ci": [
+        96.23510144663815,
+        97.38149394959513
+      ],
+      "seed_sd_pp": 0.6590059758447422,
+      "peak_GiB": 3.619249725341797,
+      "reserved_GiB": 4.176953125,
+      "train_minutes": 3.3004011503855386,
+      "eval_minutes": 2.5781177425384523
+    },
+    {
+      "method": "QLoRA",
+      "accuracy_percent": 96.52806841961605,
+      "accuracy_ci": [
+        95.93667546174143,
+        97.12674006004913
+      ],
+      "seed_sd_pp": 0.7020958111993474,
+      "peak_GiB": 1.6730470657348633,
+      "reserved_GiB": 2.651171875,
+      "train_minutes": 4.681667141914368,
+      "eval_minutes": 2.853727954228719
+    }
+  ],
+  "H3": "PROVEN",
+  "paired_seed_difference_pp": [
+    1.6922936948412337,
+    -0.5368028386861978,
+    -1.5558183968701667,
+    -0.6277863706669093,
+    -0.5277044854881267
+  ],
+  "prediction_disagreement_rate": 0.0339004640160131,
+  "bootstrap_draws": 10000,
+  "token_counts": {
+    "lora": {
+      "training_prompt_tokens": 1174895,
+      "training_target_tokens": 9600,
+      "eval_prompt_tokens": 6713660,
+      "eval_scored_tokens": 54955
+    },
+    "qlora": {
+      "training_prompt_tokens": 1174895,
+      "training_target_tokens": 9600,
+      "eval_prompt_tokens": 6713660,
+      "eval_scored_tokens": 54955
+    }
+  }
+}
+Timing: estimated 150 min; actual 340.4 min elapsed including allocation waits. GPU: NVIDIA L4. Two-VM compute: 3.091 CU (elapsed × measured 1.54 CU/h; shared balance is not an isolated bill).
+Blog words: 1629
+Evidence excerpts: /workspace/work/tig/101c-qlora-vs-lora-noninferiority/figures/colab_run.txt
+{
+  "validated": true,
+  "blog_words": 1629,
+  "charts": [
+    "accuracy.png",
+    "resources.png",
+    "noninferiority.png",
+    "table.png",
+    "diagram.png"
+  ],
+  "complete_confirmatory_fits": 10,
+  "compute_cu": 3.0912701408094834,
+  "verdict": "INCONCLUSIVE"
+}

@@ -1,0 +1,74 @@
+{
+  "verdict": "INCONCLUSIVE",
+  "H1": "INCONCLUSIVE",
+  "H2": "PROVEN",
+  "difference_pp": -0.31116367937403333,
+  "difference_ci": [
+    -1.1209171140023657,
+    0.7478846328814485
+  ],
+  "memory_ratio": 0.46226350561561846,
+  "memory_ratio_ci": [
+    0.4621985225895483,
+    0.46233640373042967
+  ],
+  "speed_ratio": 1.4185145770439074,
+  "speed_ratio_ci": [
+    1.3971368749136373,
+    1.4414792685410565
+  ],
+  "n_test": 10991,
+  "n_seeds": 5,
+  "rows": [
+    {
+      "method": "LoRA",
+      "accuracy_percent": 96.83923209899008,
+      "accuracy_ci": [
+        96.23510144663815,
+        97.38149394959513
+      ],
+      "seed_sd_pp": 0.6590059758447422,
+      "peak_GiB": 3.619249725341797,
+      "reserved_GiB": 4.176953125,
+      "train_minutes": 3.3004011503855386,
+      "eval_minutes": 2.5781177425384523
+    },
+    {
+      "method": "QLoRA",
+      "accuracy_percent": 96.52806841961605,
+      "accuracy_ci": [
+        95.93667546174143,
+        97.12674006004913
+      ],
+      "seed_sd_pp": 0.7020958111993474,
+      "peak_GiB": 1.6730470657348633,
+      "reserved_GiB": 2.651171875,
+      "train_minutes": 4.681667141914368,
+      "eval_minutes": 2.853727954228719
+    }
+  ],
+  "H3": "PROVEN",
+  "paired_seed_difference_pp": [
+    1.6922936948412337,
+    -0.5368028386861978,
+    -1.5558183968701667,
+    -0.6277863706669093,
+    -0.5277044854881267
+  ],
+  "prediction_disagreement_rate": 0.0339004640160131,
+  "bootstrap_draws": 10000,
+  "token_counts": {
+    "lora": {
+      "training_prompt_tokens": 1174895,
+      "training_target_tokens": 9600,
+      "eval_prompt_tokens": 6713660,
+      "eval_scored_tokens": 54955
+    },
+    "qlora": {
+      "training_prompt_tokens": 1174895,
+      "training_target_tokens": 9600,
+      "eval_prompt_tokens": 6713660,
+      "eval_scored_tokens": 54955
+    }
+  }
+}

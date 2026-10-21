@@ -1,0 +1,127 @@
+Sun Oct 18 19:33:56 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L4                      Off |   00000000:00:03.0 Off |                    0 |
+| N/A   61C    P0             54W /   72W |    2962MiB /  23034MiB |     30%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           11414      C   /usr/bin/python3                       2954MiB |
++-----------------------------------------------------------------------------------------+
+
+setup.log      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.0/44.0 kB 4.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 153.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 504.9/504.9 kB 42.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.1/60.1 MB 44.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 506.8/506.8 kB 44.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 119.7/119.7 kB 11.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.3/199.3 kB 17.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 45.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 146.7/146.7 kB 17.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 115.1 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+gcsfs 2025.12.0 requires fsspec==2025.12.0, but you have fsspec 2025.9.0 which is incompatible.
+diffusers 0.40.0 requires huggingface-hub<2.0,>=1.23.0, but you have huggingface-hub 0.36.2 which is incompatible.
+gradio 6.29.0 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+pilot.log TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792351539.687026   10304 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792351539.687582   10304 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+
+Generating train split:   0%|          | 0/120000 [00:00<?, ? examples/s]
+Generating train split:  64%|██████▍   | 77000/120000 [00:00<00:00, 761213.11 examples/s]
+Generating train split: 100%|██████████| 120000/120000 [00:00<00:00, 869143.20 examples/s]
+
+Generating test split:   0%|          | 0/7600 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 7600/7600 [00:00<00:00, 801587.00 examples/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+Fetching 2 files:  50%|█████     | 1/2 [00:11<00:11, 11.81s/it]
+Fetching 2 files: 100%|██████████| 2/2 [00:11<00:00,  5.91s/it]
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.04s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.89it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.65it/s]
+pilot_lora_700 step 10 loss 1.5692 seconds 17.08
+pilot_lora_700 step 20 loss 0.8804 seconds 32.71
+pilot_lora_700 step 30 loss 0.3829 seconds 48.92
+RESULT {"tag": "pilot_lora_700", "arm": "lora", "seed": 700, "phase": "pilot", "accuracy": 0.8515625, "train_seconds": 49.4691207408905, "eval_seconds": 3.1827805042266846, "total_seconds": 81.53634643554688, "peak_allocated_bytes": 3885409280, "peak_reserved_bytes": 4485808128, "initial_adapter_sha256": "c30feeac7d0e09160bde7364ddc336f09b443ede706395ce1ed29d6b20ce45a2", "trainable_parameters": 17432576, "training_prompt_tokens": 38385, "training_target_tokens": 480, "eval_prompt_tokens": 20740, "eval_scored_tokens": 256, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792351633.883717   10858 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792351633.954397   10858 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792351636.327430   10858 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792351636.327911   10858 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py:212: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.53s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.15s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.36s/it]
+pilot_qlora_700 step 10 loss 1.4821 seconds 23.22
+pilot_qlora_700 step 20 loss 1.3575 seconds 45.75
+pilot_qlora_700 step 30 loss 0.7831 seconds 68.32
+RESULT {"tag": "pilot_qlora_700", "arm": "qlora", "seed": 700, "phase": "pilot", "accuracy": 0.875, "train_seconds": 68.86546206474304, "eval_seconds": 3.5163497924804688, "total_seconds": 82.89786076545715, "peak_allocated_bytes": 1798120448, "peak_reserved_bytes": 2847932416, "initial_adapter_sha256": "c30feeac7d0e09160bde7364ddc336f09b443ede706395ce1ed29d6b20ce45a2", "trainable_parameters": 17432576, "training_prompt_tokens": 38385, "training_target_tokens": 480, "eval_prompt_tokens": 20740, "eval_scored_tokens": 256, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+
+confirm.log WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792351753.758723   11414 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792351753.832457   11414 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792351756.185132   11414 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792351756.185651   11414 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+
+Generating train split:   0%|          | 0/560000 [00:00<?, ? examples/s]
+Generating train split:  11%|█▏        | 64000/560000 [00:00<00:00, 631904.26 examples/s]
+Generating train split:  29%|██▉       | 164000/560000 [00:00<00:00, 760641.05 examples/s]
+Generating train split:  46%|████▌     | 257000/560000 [00:00<00:00, 828552.69 examples/s]
+Generating train split:  62%|██████▎   | 350000/560000 [00:00<00:00, 865505.37 examples/s]
+Generating train split:  84%|████████▍ | 472000/560000 [00:00<00:00, 987764.73 examples/s]
+Generating train split: 100%|██████████| 560000/560000 [00:00<00:00, 906015.65 examples/s]
+
+Generating test split:   0%|          | 0/70000 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 70000/70000 [00:00<00:00, 932049.80 examples/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py:212: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.40s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.09s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.29s/it]
+confirm_qlora_1701 step 10 loss 0.5212 seconds 23.67
+confirm_qlora_1701 step 20 loss 0.0174 seconds 46.79
+confirm_qlora_1701 step 30 loss 0.345 seconds 70.41
+confirm_qlora_1701 step 40 loss 0.0484 seconds 93.53
+confirm_qlora_1701 step 50 loss 0.0378 seconds 116.64
+confirm_qlora_1701 step 60 loss 0.0017 seconds 140.29
+confirm_qlora_1701 step 70 loss 0.3769 seconds 163.42
+confirm_qlora_1701 step 80 loss 0.0102 seconds 186.49
+confirm_qlora_1701 step 90 loss 0.3204 seconds 210.16
+confirm_qlora_1701 step 100 loss 0.0055 seconds 233.33
+
+DONE [PosixPath('/content/exp101c/setup.done'), PosixPath('/content/exp101c/pilot.done')]
+PROCESS pilot.pid     PID STAT     ELAPSED COMMAND
+
+PROCESS confirm.pid     PID STAT     ELAPSED COMMAND
+  11412 Ss         04:48 python3 -u /content/exp101c/driver.py confirm
+
+CHECKPOINTS [('confirm_qlora_1701.pt', 244669517)]
+snapshot written 1792352037.0271506

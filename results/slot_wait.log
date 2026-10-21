@@ -1,0 +1,35 @@
+Current balance: 124.31 compute units
+Usage rate: 3.08/hr
+Active assignments: 2
+
+[colab] Creating session 'b9-101c'...
+ [colab] Allocation refused (precondition failed). This can mean too many active sessions, or a temporary usage or capacity limit for the requested runtime. Run `colab stop` to free up a session, wait and retry, or try a different accelerator.
+
+Current balance: 124.05 compute units
+Usage rate: 3.08/hr
+Active assignments: 2
+
+[colab] Creating session 'b9-101c'...
+ [colab] Allocation refused (precondition failed). This can mean too many active sessions, or a temporary usage or capacity limit for the requested runtime. Run `colab stop` to free up a session, wait and retry, or try a different accelerator.
+
+Current balance: 123.79 compute units
+Usage rate: 3.08/hr
+Active assignments: 2
+
+[colab] Creating session 'b9-101c'...
+ [colab] Allocation refused (precondition failed). This can mean too many active sessions, or a temporary usage or capacity limit for the requested runtime. Run `colab stop` to free up a session, wait and retry, or try a different accelerator.
+
+Current balance: 123.54 compute units
+Usage rate: 3.08/hr
+Active assignments: 2
+
+[colab] Creating session 'b9-101c'...
+ [colab] Allocation refused (precondition failed). This can mean too many active sessions, or a temporary usage or capacity limit for the requested runtime. Run `colab stop` to free up a session, wait and retry, or try a different accelerator.
+
+Current balance: 123.28 compute units
+Usage rate: 3.08/hr
+Active assignments: 2
+
+[colab] Creating session 'b9-101c'...
+ [colab] Allocation refused (precondition failed). This can mean too many active sessions, or a temporary usage or capacity limit for the requested runtime. Run `colab stop` to free up a session, wait and retry, or try a different accelerator.
+

@@ -1,0 +1,14 @@
+{
+  "validated": true,
+  "blog_words": 1655,
+  "charts": [
+    "accuracy.png",
+    "resources.png",
+    "noninferiority.png",
+    "table.png",
+    "diagram.png"
+  ],
+  "complete_confirmatory_fits": 10,
+  "compute_cu": 3.0912701408094834,
+  "verdict": "INCONCLUSIVE"
+}

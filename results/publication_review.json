@@ -1,0 +1,22 @@
+{
+  "reviewed_utc": "2026-10-18T23:26:02.058312+00:00",
+  "visually_reviewed": [
+    "accuracy.png",
+    "resources.png",
+    "noninferiority.png",
+    "table.png",
+    "diagram.png"
+  ],
+  "all_labels_readable": true,
+  "blog_words": 1655,
+  "source_links_checked": true,
+  "preregistered_hypotheses_unchanged": true,
+  "key_caveats": [
+    "five seed pairs",
+    "50 content tokens",
+    "allocated VRAM threshold does not hold for reserved VRAM",
+    "two L4 VMs after first pruning",
+    "compute estimated from VM lifetimes, not isolated billing"
+  ],
+  "verdict": "INCONCLUSIVE"
+}

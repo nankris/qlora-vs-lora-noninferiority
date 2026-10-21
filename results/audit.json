@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "checks": [
+    "pilot seed 700: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1701: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1702: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1703: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1704: paired gold, initialization, token counts and computed accuracy match",
+    "confirm seed 1705: paired gold, initialization, token counts and computed accuracy match"
+  ],
+  "missing": []
+}

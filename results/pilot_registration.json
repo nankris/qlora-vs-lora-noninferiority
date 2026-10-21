@@ -1,0 +1,14 @@
+{
+  "pilot_n": 256,
+  "pilot_disagreement": 0.09765625,
+  "pilot_disagreement_wilson_upper": 0.14018575737763012,
+  "sizing_n_for_0.7pp_halfwidth": 10991,
+  "confirmation_n": 10991,
+  "pilot_speed_ratio": 1.392089874114536,
+  "prediction_interval": [
+    1.1136718992916288,
+    1.6705078489374432
+  ],
+  "pilot_accuracy_lora": 0.8515625,
+  "pilot_accuracy_qlora": 0.875
+}

@@ -1,0 +1,10 @@
+{
+  "claim_source": "https://arxiv.org/abs/2305.14314",
+  "claim_quote": "preserving full 16-bit finetuning task performance",
+  "model_card": "https://huggingface.co/Qwen/Qwen3-1.7B",
+  "confirmation_dataset": "https://huggingface.co/datasets/fancyzhx/dbpedia_14",
+  "pilot_dataset": "https://huggingface.co/datasets/fancyzhx/ag_news",
+  "interpretation": "The paper motivates expecting small accuracy changes. It does not establish this model/task's accuracy, memory ratio or speed. Those must be measured.",
+  "verified_utc": "2026-10-18T23:16:58.432644+00:00",
+  "verification": "Opened QLoRA paper, Qwen model card, DBpedia dataset card and PEFT v0.17.1 source during final review. Paper quote matches abstract."
+}

@@ -1,0 +1,21 @@
+{
+  "estimated_minutes": 150,
+  "planned_stage_minutes": {
+    "setup": 20,
+    "GPU run": 100,
+    "eval": 10,
+    "writeup": 20
+  },
+  "start_ist": "2026-10-18T23:14:53.761107+05:30",
+  "GPU": "NVIDIA L4",
+  "end_ist": "2026-10-19T04:55:52.377966+05:30",
+  "actual_minutes": 340.97694765726726,
+  "per_stage_minutes": {
+    "setup": 270.7690663297971,
+    "GPU run": 41.88258450826009,
+    "eval": 27.27088065544764,
+    "writeup": 1.0544161637624105
+  },
+  "stage_definition": "GPU run/eval sum completed worker measurements including pilot. Writeup is elapsed after final VM stop including analysis/figures. Setup is remaining elapsed, including allocation wait, downloads, loading, interruptions, lost partial work, registration and monitoring. Early drafting overlapped GPU work and is not added twice.",
+  "estimated_cu": 3.0912701408094834
+}

@@ -1,0 +1,13 @@
+{
+  "allocation": {
+    "unix": 1792351429.9188507,
+    "output": "[colab] Creating session 'b9-101c'...\n[colab] Session READY.\n",
+    "balance_before": 122.25
+  },
+  "terminated": {
+    "timestamp": "2026-10-18T20:46:18.465125+00:00",
+    "event_type": "session_terminated",
+    "reason": "pruned"
+  },
+  "rate": 1.54
+}

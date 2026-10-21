@@ -1,0 +1,31 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792351537.211521   10304 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792351537.280891   10304 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792351539.687026   10304 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792351539.687582   10304 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Generating train split:   0%|          | 0/120000 [00:00<?, ? examples/s]Generating train split:  64%|██████▍   | 77000/120000 [00:00<00:00, 761213.11 examples/s]Generating train split: 100%|██████████| 120000/120000 [00:00<00:00, 869143.20 examples/s]
+Generating test split:   0%|          | 0/7600 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 7600/7600 [00:00<00:00, 801587.00 examples/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:11<00:11, 11.81s/it]Fetching 2 files: 100%|██████████| 2/2 [00:11<00:00,  5.91s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.04s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.89it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.65it/s]
+pilot_lora_700 step 10 loss 1.5692 seconds 17.08
+pilot_lora_700 step 20 loss 0.8804 seconds 32.71
+pilot_lora_700 step 30 loss 0.3829 seconds 48.92
+RESULT {"tag": "pilot_lora_700", "arm": "lora", "seed": 700, "phase": "pilot", "accuracy": 0.8515625, "train_seconds": 49.4691207408905, "eval_seconds": 3.1827805042266846, "total_seconds": 81.53634643554688, "peak_allocated_bytes": 3885409280, "peak_reserved_bytes": 4485808128, "initial_adapter_sha256": "c30feeac7d0e09160bde7364ddc336f09b443ede706395ce1ed29d6b20ce45a2", "trainable_parameters": 17432576, "training_prompt_tokens": 38385, "training_target_tokens": 480, "eval_prompt_tokens": 20740, "eval_scored_tokens": 256, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792351633.883717   10858 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792351633.954397   10858 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792351636.327430   10858 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792351636.327911   10858 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py:212: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.36s/it]
+pilot_qlora_700 step 10 loss 1.4821 seconds 23.22
+pilot_qlora_700 step 20 loss 1.3575 seconds 45.75
+pilot_qlora_700 step 30 loss 0.7831 seconds 68.32
+RESULT {"tag": "pilot_qlora_700", "arm": "qlora", "seed": 700, "phase": "pilot", "accuracy": 0.875, "train_seconds": 68.86546206474304, "eval_seconds": 3.5163497924804688, "total_seconds": 82.89786076545715, "peak_allocated_bytes": 1798120448, "peak_reserved_bytes": 2847932416, "initial_adapter_sha256": "c30feeac7d0e09160bde7364ddc336f09b443ede706395ce1ed29d6b20ce45a2", "trainable_parameters": 17432576, "training_prompt_tokens": 38385, "training_target_tokens": 480, "eval_prompt_tokens": 20740, "eval_scored_tokens": 256, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}

@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-10-18T22:51:57.854785+00:00",
+  "training_code_hashes": {
+    "scripts/train.py": "e19fd2ca958faaa2c9dc264ba767bf27deef65046fec50eaa7e3164d18987f81",
+    "results/remote_code/train.py": "e19fd2ca958faaa2c9dc264ba767bf27deef65046fec50eaa7e3164d18987f81",
+    "scripts/driver.py": "3f28a41643ae77a3b57a6a0ee2807e15e60e9a1a7bd7f0405061725726e13110",
+    "results/remote_code/driver.py": "3f28a41643ae77a3b57a6a0ee2807e15e60e9a1a7bd7f0405061725726e13110"
+  },
+  "unchanged_training_code": true,
+  "registration_commit": "a3a5d23",
+  "first_vm_saved_confirmation_fits": 5,
+  "replacement_expected_missing_fits": 5,
+  "replacement_training_changes": []
+}

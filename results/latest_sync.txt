@@ -1,0 +1,95 @@
+Sun Oct 18 23:24:32 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L4                      Off |   00000000:00:03.0 Off |                    0 |
+| N/A   72C    P0             34W /   72W |       0MiB /  23034MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+setup.log      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.0/44.0 kB 4.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 159.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 504.9/504.9 kB 48.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.1/60.1 MB 43.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 506.8/506.8 kB 46.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 119.7/119.7 kB 15.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.3/199.3 kB 23.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 49.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 146.7/146.7 kB 18.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 131.3 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+gcsfs 2025.12.0 requires fsspec==2025.12.0, but you have fsspec 2025.9.0 which is incompatible.
+diffusers 0.40.0 requires huggingface-hub<2.0,>=1.23.0, but you have huggingface-hub 0.36.2 which is incompatible.
+gradio 6.29.0 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+
+confirm.log slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792365009.025027    8784 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py:212: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.41s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.09s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.29s/it]
+confirm_qlora_1705 step 10 loss 1.5285 seconds 23.81
+confirm_qlora_1705 step 20 loss 0.1646 seconds 47.09
+confirm_qlora_1705 step 30 loss 0.506 seconds 70.58
+confirm_qlora_1705 step 40 loss 0.1197 seconds 94.38
+confirm_qlora_1705 step 50 loss 0.9899 seconds 117.59
+confirm_qlora_1705 step 60 loss 0.0031 seconds 141.16
+confirm_qlora_1705 step 70 loss 0.1347 seconds 164.4
+confirm_qlora_1705 step 80 loss 0.8252 seconds 187.83
+confirm_qlora_1705 step 90 loss 0.0259 seconds 211.75
+confirm_qlora_1705 step 100 loss 0.5785 seconds 235.2
+confirm_qlora_1705 step 110 loss 0.5647 seconds 258.56
+confirm_qlora_1705 step 120 loss 0.0033 seconds 282.27
+RESULT {"tag": "confirm_qlora_1705", "arm": "qlora", "seed": 1705, "phase": "confirm", "accuracy": 0.9697024838504231, "train_seconds": 282.84863471984863, "eval_seconds": 172.3445963859558, "total_seconds": 474.79570841789246, "peak_allocated_bytes": 1797036032, "peak_reserved_bytes": 2845835264, "initial_adapter_sha256": "9c0200a215225c18a4273669316d7286a9a90d4fa75cf379c32aedc62296c781", "trainable_parameters": 17432576, "training_prompt_tokens": 235215, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792365493.808698   10840 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792365493.884613   10840 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792365496.310843   10840 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792365496.311357   10840 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.03s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.91it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.67it/s]
+confirm_lora_1705 step 10 loss 0.6942 seconds 16.57
+confirm_lora_1705 step 20 loss 0.3725 seconds 32.57
+confirm_lora_1705 step 30 loss 0.0037 seconds 48.91
+confirm_lora_1705 step 40 loss 0.4171 seconds 65.28
+confirm_lora_1705 step 50 loss 1.0824 seconds 81.44
+confirm_lora_1705 step 60 loss 0.002 seconds 97.97
+confirm_lora_1705 step 70 loss 0.0042 seconds 114.13
+confirm_lora_1705 step 80 loss 0.0401 seconds 130.66
+confirm_lora_1705 step 90 loss 0.0048 seconds 146.96
+confirm_lora_1705 step 100 loss 0.2002 seconds 163.24
+confirm_lora_1705 step 110 loss 0.0015 seconds 179.78
+confirm_lora_1705 step 120 loss 0.0314 seconds 195.98
+RESULT {"tag": "confirm_lora_1705", "arm": "lora", "seed": 1705, "phase": "confirm", "accuracy": 0.9749795287053044, "train_seconds": 196.49082279205322, "eval_seconds": 155.40304732322693, "total_seconds": 370.0559341907501, "peak_allocated_bytes": 3886390272, "peak_reserved_bytes": 4483710976, "initial_adapter_sha256": "9c0200a215225c18a4273669316d7286a9a90d4fa75cf379c32aedc62296c781", "trainable_parameters": 17432576, "training_prompt_tokens": 235215, "training_target_tokens": 1920, "eval_prompt_tokens": 1342732, "eval_scored_tokens": 10991, "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "gpu": "NVIDIA L4", "torch": "2.11.0+cu130"}
+
+DONE [PosixPath('/content/exp101c/confirm.done'), PosixPath('/content/exp101c/setup.done')]
+PROCESS confirm.pid     PID STAT     ELAPSED COMMAND
+
+CHECKPOINTS []
+snapshot written 1792365873.820688
+[colab] Downloaded '/content/exp101c/snapshot.tar.gz' to 'results/snapshot.tar.gz'
+Current balance: 117.38 compute units
+Usage rate: 3.08/hr
+Active assignments: 2

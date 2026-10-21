@@ -1,0 +1,22 @@
+SYNC retry needed 124
+2026-10-18T22:50:41.149818+00:00 completed 5 latest confirm_lora_1703 step 30 loss 0.0322 seconds 52.08
+2026-10-18T22:51:38.495660+00:00 completed 5 latest confirm_lora_1703 step 60 loss 0.0178 seconds 102.41
+2026-10-18T22:52:47.864085+00:00 completed 5 latest confirm_lora_1703 step 100 loss 0.1204 seconds 170.27
+SYNC retry needed 124
+2026-10-18T22:54:55.545118+00:00 completed 5 latest confirm_lora_1703 step 120 loss 0.4351 seconds 203.8
+2026-10-18T22:55:43.343508+00:00 completed 6 latest RESULT {"tag": "confirm_lora_1703", "arm": "lora", "seed": 1703, "phase": "confirm", "accuracy": 0.9730688745337094, "train_seconds": 204.35174179077148, "eval_seconds": 154.77681398391724, "total_seconds": 398.196297168
+2026-10-18T22:56:31.416557+00:00 completed 6 latest confirm_lora_1704 step 10 loss 0.3649 seconds 16.8
+2026-10-18T22:57:28.751155+00:00 completed 6 latest confirm_lora_1704 step 40 loss 0.3419 seconds 65.87
+2026-10-18T22:58:29.557629+00:00 completed 6 latest confirm_lora_1704 step 80 loss 0.753 seconds 131.86
+2026-10-18T22:59:15.952674+00:00 completed 6 latest confirm_lora_1704 step 110 loss 0.0002 seconds 181.19
+2026-10-18T23:00:02.730726+00:00 completed 6 latest confirm_lora_1704 step 120 loss 0.0062 seconds 197.87
+2026-10-18T23:00:49.367374+00:00 completed 6 latest confirm_lora_1704 step 120 loss 0.0062 seconds 197.87
+2026-10-18T23:01:46.652040+00:00 completed 6 latest confirm_lora_1704 step 120 loss 0.0062 seconds 197.87
+2026-10-18T23:02:33.697601+00:00 completed 7 latest RESULT {"tag": "confirm_lora_1704", "arm": "lora", "seed": 1704, "phase": "confirm", "accuracy": 0.9671549449549631, "train_seconds": 198.38745284080505, "eval_seconds": 155.41938662528992, "total_seconds": 371.964350700
+2026-10-18T23:03:21.308784+00:00 completed 7 latest confirm_qlora_1704 step 20 loss 0.4639 seconds 46.55
+2026-10-18T23:04:19.352589+00:00 completed 7 latest confirm_qlora_1704 step 40 loss 0.1687 seconds 93.26
+2026-10-18T23:05:08.749283+00:00 completed 7 latest confirm_qlora_1704 step 60 loss 0.0792 seconds 139.83
+2026-10-18T23:05:55.413489+00:00 completed 7 latest confirm_qlora_1704 step 80 loss 0.7273 seconds 186.39
+2026-10-18T23:07:09.314648+00:00 completed 7 latest confirm_qlora_1704 step 110 loss 0.0108 seconds 256.07
+2026-10-18T23:07:57.653524+00:00 completed 7 latest confirm_qlora_1704 step 120 loss 0.0061 seconds 279.56
+2026-10-18T23:08:56.402488+00:00 completed 7 latest confirm_qlora_1704 step 120 loss 0.0061 seconds 279.56

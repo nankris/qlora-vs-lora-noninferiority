@@ -1,0 +1,30 @@
+{
+  "gpu": "NVIDIA L4",
+  "session": "b9-101c",
+  "n_vms": 2,
+  "rate_cu_per_hour": 1.54,
+  "rate_evidence": "Recorded account rates 1.54/hr for one L4, 3.08/hr for two. Shared balance cannot isolate spend.",
+  "sessions": [
+    {
+      "start_unix": 1792351423.653394,
+      "end_unix": 1792356378.465125,
+      "end_reason": "pruned (CLI history)",
+      "minutes": 82.5801955183347
+    },
+    {
+      "start_unix": 1792363617.578944,
+      "end_unix": 1792365889.1129966,
+      "end_reason": "explicit stop after completion",
+      "minutes": 37.858900876839954
+    }
+  ],
+  "session_minutes": 120.43909639517466,
+  "estimated_cu": 3.0912701408094834,
+  "accounting_note": "Conservative elapsed estimate includes entire first VM until recorded pruning, all idle time, and 10 seconds before replacement ready. Not a separate account invoice.",
+  "training_minutes": 41.88258450826009,
+  "evaluation_minutes": 27.27088065544764,
+  "complete_pilot_runs": 2,
+  "complete_confirmatory_runs": 10,
+  "cap_cu": 6,
+  "stopped": true
+}
