@@ -1,5 +1,5 @@
 """One allocation attempt, safe to rerun after a sandbox reboot."""
-import datetime,json,re,subprocess,time
+import datetime,json,os,re,subprocess,time
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 r=root/'results'
@@ -12,11 +12,11 @@ rows=[json.loads(x) for x in (r/'allocation_attempts.jsonl').read_text().splitli
 if rows and (now-datetime.datetime.fromisoformat(rows[-1]['time_utc'])).total_seconds()<300:
  print('Five-minute retry interval has not elapsed.');raise SystemExit(3)
 s=subprocess.run(['colab','sessions'],capture_output=True,text=True,check=True)
-if '[b9-101c]' in s.stdout:
+if '[qlora-vs-lora]' in s.stdout:
  print('Named session exists. Reconnect instead of allocating.');raise SystemExit(4)
 u=subprocess.run(['colab','usage'],capture_output=True,text=True,check=True)
 print(u.stdout,flush=True)
-floor=float(Path('/workspace/work/tig/_batch9/cu_floor.txt').read_text().strip())
+floor=float(Path(os.environ.get('CU_FLOOR_FILE','cu_floor.txt')).read_text().strip())
 balance=float(re.search(r'Current balance:\s*([\d.]+)',u.stdout)[1])
 if balance<=floor:
  (r/'floor_wait.json').write_text(json.dumps({'retry_after_unix':time.time()+900,'balance':balance,'floor':floor}))
@@ -24,7 +24,7 @@ if balance<=floor:
 p=r/'floor_wait.json'
 if p.exists() and time.time()<json.loads(p.read_text())['retry_after_unix']:
  print('Fifteen-minute floor interval has not elapsed.');raise SystemExit(5)
-result=subprocess.run(['colab','new','--gpu','L4','-s','b9-101c'],capture_output=True,text=True)
+result=subprocess.run(['colab','new','--gpu','L4','-s','qlora-vs-lora'],capture_output=True,text=True)
 print(result.stdout,result.stderr,flush=True)
 with (r/'allocation_attempts.jsonl').open('a') as f:
  f.write(json.dumps({'time_utc':now.isoformat(),'result':result.stdout+result.stderr,'balance':balance,'floor':floor,'exit_code':result.returncode})+'\n')

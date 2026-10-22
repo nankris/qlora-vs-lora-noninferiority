@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
-source /workspace/tools/setup.sh
-cd /workspace/work/tig/101c-qlora-vs-lora-noninferiority
+[ -z "${ENV_SETUP:-}" ] || source "$ENV_SETUP"
+cd "$(dirname "$0")/.."
 export MPLCONFIGDIR="$PWD/.cache/matplotlib"
-PYTHON=/workspace/tools/mlenv/bin/python
+PYTHON="${PYTHON:-python}"
 "$PYTHON" scripts/audit_results.py
 "$PYTHON" - <<'PY'
 import json

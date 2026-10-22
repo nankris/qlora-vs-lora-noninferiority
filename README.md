@@ -1,26 +1,26 @@
-# 101c: QLoRA within one point of LoRA at under half the VRAM?
+# QLoRA within one point of LoRA at under half the VRAM?
 
 Question: Does NF4 QLoRA preserve classification accuracy relative to BF16 LoRA while halving training memory on Qwen/Qwen3-1.7B?
 
-Source: Dettmers et al., [QLoRA](https://arxiv.org/abs/2305.14314), which reports preserving 16-bit finetuning performance. Prior #101's saved writeup actually names Qwen3-4B, despite the request describing 0.6B. This experiment uses a fresh 1.7B model and DBpedia task regardless.
+Source: Dettmers et al., [QLoRA](https://arxiv.org/abs/2305.14314), which reports preserving 16-bit finetuning performance. The earlier Qwen3-4B run in [my PEFT head-to-head](https://github.com/nankris/peft-head-to-head) is the closest prior result. This experiment uses a fresh 1.7B model and a DBpedia task instead.
 
 ## Protocol registered before pilot
-Pilot: one paired seed (700), AG News, 512 training / 256 test items, 30 steps. Only sizing, speed and implementation diagnostics; excluded from confirmation. This obeys the hypothesis-rules requirement to pilot on a different dataset. Confirmation: public HF `fancyzhx/dbpedia_14`, 4,096 training items and initially 6,000 test items (may increase BEFORE confirmation using pilot disagreement). Five paired seeds 1701–1705, same training items and order within each pair, 120 optimizer steps, batch 16 (microbatch 4 × accumulation 4), fixed length 128 tokens. Single-letter class codes A–N, next-token cross-entropy and constrained classification. No generated explanations. Record tokenizer token counts, not character estimates.
+Pilot: one paired seed (700), AG News, 512 training / 256 test items, 30 steps. Only sizing, speed and implementation diagnostics; excluded from confirmation. The pilot uses a different dataset from the confirmation on purpose. Confirmation: public HF `fancyzhx/dbpedia_14`, 4,096 training items and initially 6,000 test items (may increase BEFORE confirmation using pilot disagreement). Five paired seeds 1701–1705, same training items and order within each pair, 120 optimizer steps, batch 16 (microbatch 4 × accumulation 4), fixed length 128 tokens. Single-letter class codes A–N, next-token cross-entropy and constrained classification. No generated explanations. Record tokenizer token counts, not character estimates.
 
 Both arms: all linear attention/MLP projections, rank 16, alpha 32, dropout 0, LR 2e-4, AdamW torch FP32 states, constant LR, weight decay 0, gradient clipping 1, gradient checkpointing, BF16 computation, SDPA. QLoRA: bitsandbytes NF4 double quantization, frozen base; LoRA: frozen BF16 base. No per-arm tuning. Adapter parameters explicitly BF16 in both arms. Frozen embeddings/head remain BF16 in both; do not cast all QLoRA weights to FP32. One fresh subprocess per run, same GPU. Quantization preparation is explicit rather than PEFT's automatic FP32 casting.
 
-H1 primary: QLoRA minus LoRA mean accuracy, percentage points. PROVEN if paired two-level (seeds and common test items) percentile bootstrap 95% lower bound > -1.0 pp; DISPROVEN if upper bound < -1.0 pp; otherwise INCONCLUSIVE. Margin rationale supplied by the experiment brief: 1 pp is smaller than users notice on most classification tasks, treated here as a practical tolerance rather than a universal usability fact. No claim of exact equality.
+H1 primary: QLoRA minus LoRA mean accuracy, percentage points. PROVEN if paired two-level (seeds and common test items) percentile bootstrap 95% lower bound > -1.0 pp; DISPROVEN if upper bound < -1.0 pp; otherwise INCONCLUSIVE. Margin rationale: 1 pp is smaller than users notice on most classification tasks, treated here as a practical tolerance rather than a universal usability fact. No claim of exact equality.
 
 H2: QLoRA peak PyTorch allocated training VRAM / LoRA <0.50. Pair-bootstrap seeds 95% CI: PROVEN if upper bound <0.50, DISPROVEN if lower bound >=0.50, else INCONCLUSIVE. Peak reserved and nvidia-smi also recorded; primary memory metric is allocated, reset immediately before training including resident model/optimizer.
 
 H3: training wall-clock ratio predicted from pilot, numeric prediction and tolerance registered after pilot and BEFORE confirmation. Ratio uses synchronized training seconds, excluding loading and evaluation. Report end-to-end seconds separately. Seed bootstrap CI. Confirmation outcome rule fixed in addendum.
 
-Overall question PROVEN only if H1 and H2 PROVEN; DISPROVEN if either DISPROVEN; otherwise INCONCLUSIVE. H3 is diagnostic and cannot change primary verdict. 10,000 bootstrap draws, RNG 101.
+Overall question PROVEN only if H1 and H2 PROVEN; DISPROVEN if either DISPROVEN; otherwise INCONCLUSIVE. H3 is diagnostic and cannot change primary verdict. 10,000 bootstrap draws, RNG seed 101.
 
 Sizing: >=5 paired seeds and >=6,000 fresh test items. Approximate 95% item half-width is 1.96 sqrt(discordance / n), with a separately reported seed component. Pilot-derived sizing and H3 will be appended and committed before confirmation. Five seeds give coarse information about seed tails; report this limitation.
 
 ## Execution and budget
-NVIDIA L4 only, named session `b9-101c`; detached VM processes, per-run atomic JSON and checkpointing, frequent local copies. Hard experiment cap 6 CU, conservatively cap VM lifetime at 3 hours if L4 rate <=2 CU/h; record actual assigned rate and adjust cap down if higher. Never create below daily floor. Stop session on completion/failure.
+NVIDIA L4 only, named session `qlora-vs-lora`; detached VM processes, per-run atomic JSON and checkpointing, frequent local copies. Hard experiment cap 6 CU, conservatively cap VM lifetime at 3 hours if L4 rate <=2 CU/h; record actual assigned rate and adjust cap down if higher. Do not allocate a VM if the compute balance is below a fixed floor. Stop session on completion/failure.
 
 Timing: estimated 150 minutes (setup 20, GPU run 100, analysis 10, writeup 20); actual and CU pending. See results/timing.json.
 
@@ -28,7 +28,7 @@ Implementation clarification before pilot: 120 × 16 = 1,920 training exposures 
 
 Measurement clarification before pilot: training wall time includes the periodic checkpoint writes needed for reboot recovery, including their CPU serialization time; loading, tokenization and evaluation are excluded. Checkpoint policy is identical across arms. The effective recipe is supervised next-token classification, not chat reasoning or free-form generation. Accuracy cannot be generalized to those workloads.
 
-Prior-result provenance: #101's saved writeup already reports QLoRA minus LoRA +0.10 pp, 95% CI [-0.35,+0.55], and calls its QLoRA comparison supported with three seeds. Its overall INCONCLUSIVE verdict came from DoRA. Thus this follow-up is a fresh-model/fresh-task replication with more seeds and a stricter memory threshold, not the first evidence that QLoRA can clear a 1 pp margin. This discrepancy with the brief is disclosed rather than silently repeated.
+Prior-result provenance: the earlier Qwen3-4B run in [my PEFT head-to-head](https://github.com/nankris/peft-head-to-head) already reports QLoRA minus LoRA +0.10 pp, 95% CI [-0.35,+0.55], and calls its QLoRA comparison supported with three seeds. Its overall INCONCLUSIVE verdict came from DoRA. So this follow-up is a fresh-model/fresh-task replication with more seeds and a stricter memory threshold, not the first evidence that QLoRA can clear a 1 pp margin. I am stating this openly rather than presenting this as the first evidence.
 
 Pre-run tokenizer check (no task outcomes observed): the DBpedia legend and suffix occupy 78 tokens, leaving **50 content tokens** at the registered 128-token limit. Every A-N class code is exactly one token. This is a short-text classification comparison and cannot establish performance on full documents.
 

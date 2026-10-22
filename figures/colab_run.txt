@@ -1,4 +1,4 @@
-Experiment 101c: recorded terminal evidence.
+Recorded terminal evidence.
 Full polling transcript: results/poll_history.txt
 Full VM logs: results/remote_logs/
 

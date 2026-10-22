@@ -8,7 +8,7 @@ from transformers import AutoTokenizer,AutoModelForCausalLM,BitsAndBytesConfig,s
 from peft import LoraConfig,get_peft_model
 from datasets import load_dataset
 p=argparse.ArgumentParser();p.add_argument('--arm',choices=['lora','qlora']);p.add_argument('--seed',type=int);p.add_argument('--phase',choices=['pilot','confirm']);a=p.parse_args()
-root=Path('/content/exp101c');out=root/'results';out.mkdir(exist_ok=True,parents=True)
+root=Path('/content/qlora_vs_lora');out=root/'results';out.mkdir(exist_ok=True,parents=True)
 tag=f'{a.phase}_{a.arm}_{a.seed}';dest=out/f'{tag}.json'
 if dest.exists(): print('SKIP',tag,flush=True);raise SystemExit
 start=time.time();set_seed(a.seed);torch.set_num_threads(2)

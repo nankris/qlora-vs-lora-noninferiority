@@ -35,7 +35,7 @@ Prompts are limited to 128 tokens. The DBpedia legend and suffix use 78, leaving
 
 The sizing pilot used a different dataset, AG News: one paired seed, 480 training exposures, 256 test items and 30 steps per arm. Disagreement was 9.77%, Wilson upper bound 14.02%. Targeting a 0.7 pp item half-width selected 10,991 confirmation items. Pilot accuracy was 85.16% LoRA and 87.50% QLoRA. Pilot outcomes are excluded from all confirmatory CIs. The cross-task sizing is approximate and does not guarantee seed-level power.
 
-Registration: initial protocol commit `4ce14e4`; pilot-derived final registration `a3a5d23`, before the VM confirmation authorization timestamp in `results/remote_logs/confirmation_start.json`. The old #101 writeup actually used Qwen3-4B and already supported its QLoRA comparison; DoRA made its overall result inconclusive. This is a replication under a stricter memory threshold, not a correction of an unproven old accuracy claim.
+Registration: initial protocol commit `4ce14e4`; pilot-derived final registration `a3a5d23`, before the VM confirmation start timestamp in `results/remote_logs/confirmation_start.json`. The earlier Qwen3-4B run in [my PEFT head-to-head](https://github.com/nankris/peft-head-to-head) had already supported its QLoRA comparison; DoRA made its overall result inconclusive. This is a replication under a stricter memory threshold, not a correction of an unproven old accuracy claim.
 
 ## Per-seed accuracy
 
@@ -61,7 +61,7 @@ Registration: initial protocol commit `4ce14e4`; pilot-derived final registratio
 
 Timing: estimated 150 min; actual 341.0 min elapsed including allocation waits. GPU: NVIDIA L4. Two-VM compute: 3.091 CU (elapsed × measured 1.54 CU/h; shared balance is not an isolated bill).
 
-The first `b9-101c` VM was pruned at 20:46 UTC after five saved confirmation fits. A replacement L4 resumed only the five missing fits with the registered protocol unchanged, then was stopped after saved-result verification. Seed 1703 spans the two hosts; seeds 1701–1702 ran on the first and 1704–1705 on the second. Total GPU training time including pilot: 41.88 min; evaluation: 27.27 min; combined billed VM lifetimes: 120.44 min. The 6 CU cap was respected. Other sessions were neither used nor stopped. Raw predictions, gold labels, per-step losses, token counts and dataset split indices are under `results/`; logs and nvidia-smi evidence are in `figures/colab_run.txt` and `results/remote_logs/`.
+The first `qlora-vs-lora` VM was pruned at 20:46 UTC after five saved confirmation fits. A replacement L4 resumed only the five missing fits with the registered protocol unchanged, then was stopped after saved-result verification. Seed 1703 spans the two hosts; seeds 1701–1702 ran on the first and 1704–1705 on the second. Total GPU training time including pilot: 41.88 min; evaluation: 27.27 min; combined billed VM lifetimes: 120.44 min. The 6 CU cap was respected. Other sessions were neither used nor stopped. Raw predictions, gold labels, per-step losses, token counts and dataset split indices are under `results/`; logs and nvidia-smi evidence are in `figures/colab_run.txt` and `results/remote_logs/`.
 
 Run `scripts/audit_results.py`, `scripts/analyze.py`, `scripts/figures.py`, then `scripts/report.py` with the local ML Python to regenerate the tables and charts. The remote worker and driver skip completed JSON results and resume exact optimizer checkpoints. Model packages are pinned in `scripts/bootstrap_setup.py`; the full VM package snapshot is saved in `results/remote_logs/environment.txt`.
 

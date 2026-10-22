@@ -1,7 +1,7 @@
 """colab exec this only after installing, uploading train.py and driver.py."""
 import subprocess,os
 from pathlib import Path
-r=Path('/content/exp101c');phase='confirm' if (r/'confirm.authorized').exists() else 'pilot'
+r=Path('/content/qlora_vs_lora');phase='confirm' if (r/'confirm.start').exists() else 'pilot'
 assert (r/'setup.done').exists()
 pidfile=r/f'{phase}.pid'
 if pidfile.exists():

@@ -1,7 +1,7 @@
 """Execute on the named VM with colab exec, then download snapshot.tar.gz."""
 import subprocess,json,os,tarfile,time
 from pathlib import Path
-r=Path('/content/exp101c')
+r=Path('/content/qlora_vs_lora')
 print(subprocess.check_output(['nvidia-smi'],text=True))
 for name in ['setup.log','pilot.log','confirm.log']:
     p=r/name

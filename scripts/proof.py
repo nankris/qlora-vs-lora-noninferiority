@@ -3,7 +3,7 @@ import json,re,shutil
 from pathlib import Path
 r=Path(__file__).resolve().parents[1];f=r/'figures/colab_run.txt';archive=r/'results/poll_history.txt'
 if not archive.exists():shutil.copyfile(f,archive)
-history=archive.read_text();sections=['Experiment 101c: recorded terminal evidence.\nFull polling transcript: results/poll_history.txt\nFull VM logs: results/remote_logs/\n']
+history=archive.read_text();sections=['Recorded terminal evidence.\nFull polling transcript: results/poll_history.txt\nFull VM logs: results/remote_logs/\n']
 for name in ['confirmation_start.json','started.json']:
     p=r/'results/remote_logs'/name
     if p.exists():sections.append(name+'\n'+p.read_text())

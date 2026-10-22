@@ -1,6 +1,6 @@
 import subprocess,sys,time,json,os
 from pathlib import Path
-root=Path('/content/exp101c');phase=sys.argv[1];deadline=float((root/'deadline.txt').read_text())
+root=Path('/content/qlora_vs_lora');phase=sys.argv[1];deadline=float((root/'deadline.txt').read_text())
 for seed in ([700] if phase=='pilot' else range(1701,1706)):
     for arm in (['lora','qlora'] if seed%2==0 else ['qlora','lora']):
         if time.time()>deadline:raise RuntimeError('CU safety deadline reached')

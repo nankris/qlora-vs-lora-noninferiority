@@ -55,7 +55,7 @@ The models disagreed on {reg['pilot_disagreement']*100:.2f}% of pilot prediction
 
 There is a catch: pilot disagreement on AG News need not transfer to DBpedia. Neither does one pilot seed estimate the tails of seed variation. The sizing is a reasoned starting point, not a guarantee that the test will pass.
 
-The final sample size and speed prediction were committed before I authorized the confirmation job. Pilot outcomes are excluded from the reported confirmation intervals.
+The final sample size and speed prediction were committed before I started the confirmation job. Pilot outcomes are excluded from the reported confirmation intervals.
 
 ## The accuracy result
 
@@ -97,11 +97,11 @@ The pilot predicted a **{reg['pilot_speed_ratio']:.3f}×** slowdown. Before conf
 
 Seed 1701 favored QLoRA by 1.69 points; seed 1703 favored LoRA by 1.56. The mean hides that swing. More test articles alone would not remove training variation.
 
-The old run tied on training speed. The new pilot did not: QLoRA took 39% longer. That changed the operational expectation before confirmation, and the pilot-derived speed prediction was then committed.
+The earlier Qwen3-4B run tied on training speed. The new pilot did not: QLoRA took 39% longer. That changed the operational expectation before confirmation, and the pilot-derived speed prediction was then committed.
 
 The pilot gave QLoRA higher accuracy than LoRA, 87.50% versus 85.16%. It would have been tempting to predict an accuracy improvement. I did not: 256 examples and one seed are too little evidence for that stronger claim, particularly when confirmation changes tasks.
 
-One correction to the follow-up premise: #101's saved writeup used Qwen3-4B and already supported its QLoRA accuracy comparison. Its overall inconclusive verdict came from DoRA. This is a fresh-model replication with a stricter memory target.
+One correction to the premise of this follow-up: the earlier Qwen3-4B run in [my PEFT head-to-head](https://github.com/nankris/peft-head-to-head) had already supported its QLoRA accuracy comparison. Its overall inconclusive verdict came from DoRA. This is a fresh-model replication with a stricter memory target.
 
 The first Colab VM was pruned after five saved confirmation fits. A replacement L4 ran only the missing fits under the unchanged protocol. Seed 1703 crosses hosts, which limits the paired timing comparison.
 
@@ -126,7 +126,7 @@ Timing: estimated {t['estimated_minutes']} minutes; actual {t['actual_minutes']:
 
 Measure the memory saving, price the extra training time, and require your own error budget to pass.
 
-Code: <repo link placeholder>
+Code: https://github.com/nankris/qlora-vs-lora-noninferiority
 '''
 (r/'blog.md').write_text(text)
 words=len(text.split());print('Blog words:',words)
